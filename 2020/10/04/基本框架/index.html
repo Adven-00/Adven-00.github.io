@@ -6,17 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hexo">
-    <title>归档 - Hexo</title>
+    <title>基本框架 - Hexo</title>
     <meta name="author" content="John Doe">
     
     
     
-    <script type="application/ld+json">{}</script>
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"本章讨论三个主题\n首先，从金融学的角度，讨论经济结构的三个方面：\n\n所处的经济环境。\n经济中的参与者（agent）及其特征。\n金融市场。\n\n其次，我们研究参与者资源配置和金融市场（尤其是价格）的相互作用。最后，我们的核心问题是金融市场帮助参与者完成资源配置的效率。\n1.1 经济环境经济环境的两个关键因素是时间和风险。\n对于时间，我们简单的认为只有现在（$t=0$）和未来（$t=1$）两个时期。对于风险，未来的所有状态 $\\omega$ 组成一个状态空间 $\\Omega$ ，每个状态 $\\omega\\in\\Omega$ ，并定义这个空间上的概率测度 $P(\\omega)$ 。$\\Omega$ 也可以表示状态空间中的总状态数。\n我们认为经济环境是外生（exogenous）的，只存在一种不可存储且既是资本品又是消费品的商品。不可储存商品的假设排除了通过简单的储存把今天的商品转换成明天的商品的可能。\n1.2 参与者参与者可以是个人，家庭，公司，政府等等，简单起见我们只考虑为自己利益行动的个体。参与者的经济特征包括：\n\n他所控制的经济资源。\n他的经济需求。\n\n以下对这两个特征进行描述。\n1.2.1 参与者的经济资源\n禀赋（endowment）参与者初始占有，与生俱来的资源。我们用列向量表示：\n\ne_k=[e_{k,0};e_{k,1}]=[e_{k,0};[e_{k,11};\\cdots;e_{k,1\\Omega}]]即参与者 $k$ 的禀赋 $e_k$ 可在 $1+\\Omega$ 维实空间上展开，在各个状态维度上有不同的分量，0期是一个单独的状态，与 $\\omega$ 无关。 \n\n信息（information）信息分为公共性息和私有信息，掌握私有信息引发的信息不对称会导致激励问题。我们构建的简化模型忽略这一点，认为所有参与者在当下拥有相同信息，反映在测度 $P$ 中。\n\n生产技术（technology）我们构建的简化模型忽略这一点，认为所有参与者不具备生产技术。\n\n\n1.2.2 参与者的经济需求1.2.2.1 消费集在我们的框架中，参与者的经济需求基于他在不同状态下的消费，与禀赋类似地定义：\n\nc_k=[c_{k,0};c_{k,1}]=[c_{k,0};[c_{k,11};\\cdots;c_{k,1\\Omega}]]我们定义 $c=[c_0,c_1]$ 为一个消费计划， 显然消费计划的取值与未来经济状态有关，是一个随机量，这个随机量的一个具体实现称为一个消费路径。所有可能消费计划的集合称为消费集 $C$ （consumption set）。实际上，$C=R^{1+\\Omega}_+$  （消费一般不取负值）。\n\n这里补充一些 $R^n$ 上集合 $A$ 的性质凸集：对 $\\forall a,b\\in A, \\forall \\alpha\\in[0,1],\\alpha a+(1-\\alpha)b\\in A$闭集：对 $A$ 中的任意元素序列 $\\{a_i\\}$ ，其极限 $\\alpha \\in A$\n\n$C$ 是一个闭凸子集。\n1.2.2.2 偏好偏好（preference）定义为 $C$ 上的一个二元关系，表示为 $\\succsim$，定义为\n\n完备：$\\forall a,b\\in C,a\\succsim b$ 或 $b \\succsim a$ 或两者均成立\n传递：$a\\succsim b,b\\succsim c,$ 则 $a\\succsim c$ \n完备保证所有消费计划可以比较，传递保证参与者的理性。\n\n\n\n为了更准确地刻画参与者行为，我们做进一步基本假设：\n\n不满足性（insatiability）：若 $a &gt; b$，则 $a  \\succ b$ 。\n\n 如果在所有状态下 $a$ 消费量都不比 $b$ 少，则参与者显然偏好 $a$ 。\n\n\n连续性 （continuity）：$\\forall c\\in C$ ，$\\{a\\in C:a\\succsim c\\},\\{b\\in C:b\\lesssim c\\}$ 都是闭集。 \n\n接近的消费计划有着接近的偏好顺序。\n\n\n凸性（convexity）：对 $\\forall a,b\\in C, \\forall \\alpha\\in(0,1),$ 若 $a\\succ b$ ，则 $ \\alpha a+(1-\\alpha)b\\succ b$ 。\n\n\n1.2.2.3 效用我们定义一个映射 $U:C\\to R$，满足 $a \\succsim b$ 时 $U(a)\\ge U(b)$ ，称之为效用（utility）函数，以便于研究偏好。\n可以证明，对于满足连续性假设的偏好，必存在对应的效用函数。\n\n不唯一，可以做正单调变换，所以效用函数的值没有意义，是序数的。\n\n以效用作为工具，可以简洁地重述偏好的三个基本假设：\n\n不满足性：若 $a \\ge b$，则 $U(a)\\ge U(b)$ 。\n连续性：$\\lim_{a_n\\to a}U(a_n)=U(a)$ 。\n凸性：若 $U(a)&gt;U(b)，\\alpha\\in (0,1)$ ，则 $U(\\alpha a+(1-\\alpha)b)&gt;U(b)$ 。\n\n1.3 证券市场给定经济所处的自然环境和其中的参与者，我们现在要考虑参与者如何配置其资源以满足他们的经济需求。而资源的配置是通过金融市场中的交易来完成的。我们简化为证券市场。\n1.3.1 证券及其支付证券（security）是一种金融要求权，会在1期给所有者带来支付。记不同状态下的支付为 $x_\\omega$ ，那一支证券就可以用列向量 $x=[x_1;\\cdots ;x_\\Omega]$ 表示。所有可能支付组合成支付空间 $R^\\Omega$ 。\n根据假设，证券的支付是外生的。\n\n上面对金融证券的描述有这样几个含义：第一，它的支付只取决于未来的实际经济状况。第二，它的支付是外生给定的且不受经济中参与者行为的影响。第三，因为所有参与者都知道可能状态的集合和对应的概率，他们也知道且一致认同证券支付的概率分布。\n由于我们假设所有参与者的信息是对称的，因此我们将不考虑非证券化的金融要求权，而只局限于证券形式的金融要求权。这样，在我们的框架中，金融市场也就简化为证券市场了。\n\n补充一些证券相关的概念：\n\n证券产生的支付通常叫做股利（dividend）。\n对实物资产所产生的支付的要求权称为股票（stock），因此，证券也称做金融资产或资产。\n金融资产的支付来自于它的标的（underlying）实物资产。\n无风险债券的支付与状态无关，风险债券（如股票）支付取决于状态。\n\n1.3.2 市场结构假设市场中总共有 $N$ 只可交易的证券，标号为 $n$ 。设第 $n$ 只证券的支付向量 $x.,n=[x_{1,n};\\cdots ;x_{\\Omega,n}]$ ，得到支付矩阵：\n\nX=[x_{.,1},\\cdots ,x_{.,N}]=\\begin{bmatrix}x_{1,1}&\\cdots &x_{1,n}&\\cdots &x_{1,N}\\\\\\vdots&\\ddots&\\vdots&\\ddots&\\vdots\\\\x_{\\omega,1}&\\cdots &x_{\\omega,n}&\\cdots &x_{\\omega,N}\\\\\\vdots&\\ddots&\\vdots&\\ddots&\\vdots\\\\x_{\\Omega,1}&\\cdots &x_{\\Omega,n}&\\cdots &x_{\\Omega,N}\\end{bmatrix}支付矩阵也就是市场结构（market structure）。\n1.3.3 证券组合我们把一个对各证券持有量的集合称为一个证券组合（security portfolio）。设一个组合对证券 $n$ 的持有量为 $\\theta_n$ ，持有向量 $\\theta=[\\theta_1;\\cdots;\\theta_N]$ 。参与者 $k$ 的初始证券组合：\n\n\\theta_k=[\\theta_{k,1};\\cdots;\\theta_{k,N}]\n参与者的禀赋也应包括他所拥有的初始证券组合所带来的未来支付。或者说，每个参与者的1期禀赋中市场化的部分即可看做来自于他的初始组合的支付。\n\n如果将所有参与者的初始证券组合求和：\n\n\\theta_M=\\sum_{k=1}^{K}\\theta_k这个组合即代表了市场中所有可交易证券的集合，称之为市场组合 (market portfolio），是所有可交易证券的总供给。\n任何一个支付 $x$ ，若存在 $X\\theta=x,\\theta\\in R^N$ ，我们称它为市场化的（marketed）。我们记所有市场化支付的集合为 $M$，有：\n\nM=\\{x:X\\theta=x,\\theta\\in R^N\\}$M$ 是 $R^{\\Omega}$ 的 $N$ 维子空间。\n1.3.4 交易过程给定可交易的证券，我们还需要描述交易是如何进行的。在基本框架中，我们抽象掉细节特征而采用一个与集合交易相似的交易过程。\n\n参与者可以提交他们的买单和卖单，由系统收集这些交易单，并找到一个匹配的价格，且以这个价格执行这些交易。这种交易过程也叫做集中化交易（centralized exchange)。\n\n证券的价格向量：\n\nS=[S_1;\\cdots ;S_N]参与者对证券的需求为 $S$ 的函数 $\\theta_k(S)$，。交易系统找到一个价格（向量）使得所有证券的总需求等于总供给，得到市场出清价格条件（market-clearing condition）:\n\n\\sum_{k=1}^K\\theta_k(S)=\\sum_{k=1}^K\\theta_k我们假设证券市场是无摩擦市场（frictionless market）。\n\n具体而言，我们将作如下假设：\n\n所有参与者都可以无成本地参与证券市场。\n没有交易成本。\n对于参与者的证券持有量没有头寸限制。\n个体参与者的交易不会影响证券价格。\n没有税收。\n\n市场摩擦创造了盈利机会，金融机构和金融创新正是为了利用这些盈利机会而产生的。\n\n1.4 基本经济模型一个经济的定义如下:\n\n两个时期，在1期有 $n$ 个可能状态。对于这些状态有概率测度 $P$。只有一种不可储存的商品。\n经济中有 $K$ 个参与者。\n每一参与者对未来状态发生的可能性都有相同的信息，由 $P$ 描述。\n每一参与者具有禀赋 $e_k\\in R_+^{1+\\Omega}$ 。\n每一参与者有定义于 $C=R_+^{1+\\Omega}$ 上，且满足三个假设的偏好。\n\n\n有一个市场结构为 $X$ 的无摩擦证券市场。\n\n如果所有参与者的1期禀赋都可表示为其初始证券组合的支付，则我们称之为证券市场经济（security-market economy）。\n1.5 市场均衡现在我们在以上框架的基础下分析参与者资源配置和证券市场的相互作用，通过证券市场进行的资源配置过程可以看成是通过两个方面的相互影响来完成的：\n\n给定交易证券，特别是它们的未来支付以及现在的价格，每一参与者选择最优的证券持有量以期得到最理想的支付。 显然，他的持有量取决于这些证券的价格。\n参与者对证券的需求会共同影响证券的价格。如果价格使得对证券的需求恰好等于它的供给，那么我们说市场达到均衡（equilibrium）。\n\n1.5.1 参与者各自优化考虑一个参与者，拥有禀赋 $e$，以价格 $S$ 购买证券组合 $\\theta$，那么他的消费：\n\nc_0=e_0-S^T\\theta\nc_1=e_1+X\\theta原本他只能消费禀赋 $c=(e_0,e_1)$ ，这是由商品不能储存的假设决定的，但通过购买组合 $\\theta$ 他可以用一个市场化的支付 $X\\theta$ 来改变他的未来消费。注意 $\\theta$ 可以有负值。\n\n对证券的持有量为正时称为多头（投资者对股市看好，预计股价将会看涨，于是趁低价时买进股票，待股票上涨至某一价位时再卖出，以获取差额收益）。\n为负时称为空头（投机者认为某种商品、股票、债券等的价格将要下跌，于是卖出期货，希望在跌价后再买回或补进，获取差额利益）。购买组合所用的成本即代表参与者0期的储蓄（savings)，负的储蓄即借贷。\n\n具有禀赋 $e$ 的参与者在支付和价格为 ${X,S}$ 的证券市场中的预算集（budget set）定义为：\n\nB(e,\\{X,S\\})=\\{c\\ge0:c_0=e_0-S^T\\theta,c_1=e_1+X\\theta,\\theta\\in R^N\\}参与者的最优化问题由效用表达：\n\n\\max_{c_k\\in B(e_k,\\{X,S\\})} U_k(c_k)结果是每一参与者对证券的需求量，是价格向量和禀赋的函数 $\\theta_k(e_k,S)$ 。\n1.5.2 市场出清在我们的假设下，所有参与者证券初始持有量为0，所以证券总供给也为0。\n\n我们注意到，这样的表述并不失其一般性。如果持有初始证券，我们就把禀赋转化成 $e^T=[e_0;e_1+X\\theta]$ ，把 $e^T$ 当作他的总禀赋，而把证券持有量设为0。\n\n市场出清条件为：\n\n\\sum_{k=1}^K\\theta_k(e_k,S)=0将出清条件代入所有参与者的消费中：\n\n\\sum_{k=1}^K c_{k,0}=\\sum_{k=1}^K e_{k,0}-S^T\\sum_{k=1}^K\\theta_k(e_k,S)=\\sum_{k=1}^K e_{k,0}\n\\sum_{k=1}^Kc_{k,\\omega}=\\sum_{k=1}^K e_{k,\\omega}+X\\sum_{k=1}^K\\theta_k(e_k,S)=\\sum_{k=1}^K e_{k,\\omega}以上两式意味着证券市场的出清就是商品市场的出清，即 $Walras$ 法则：\n\n\\sum_{k=1}^Kc_k=\\sum_{k=1}^Ke_k这个等式的含义很显然，证券市场只对资源进行了交换，不改变总量。\n因此，求解均衡包括两个步骤：首先，对于任意的价格向量 $S$ 求解 每个参与者的最优证券组合，这给出了他对证券的需求 $\\theta_k(e_k,S)$ 。第二，通过市场出清条件求解均衡价格 $S$。结果写作：\n\nS=S(P;\\{U_k,e_k\\};X)这在形式上表明了证券价格取决于经济的基本面 （fundamentals） 或本源（primitives）：经济面临的风险，经济中参与者的偏好和禀赋以及证券市场的结构。\n1.6 最优化证券市场配置资源的效率就是我们关注的一个核心问题。在给定的市场结构和交易证券的市场价格下，每个参与者都选择了最优的消费计划。但是这并不意味着最后的配置在参与者之间是最优的。下面来定义什么是最优。\n定义 Pareto 改进，$\\{c_k^{‘},\\forall k\\}$ 是对 $\\{c_k,\\forall k\\}$ 的一个 Pareto 改进，若：\n\n\\forall k:U_k(c_k^{'})\\ge U_k(c_k)定义可行（feasible），一个配置 $\\{c_k,\\forall k\\}$ 是可行的，若：\n\n\\sum_{k=1}^Kc_k=\\sum_{k=1}^Ke_k定义 Pareto 最优（Pareto Optimality），一个配置 $\\{c_k,\\forall k\\}$ 是可行的且不存在 Pareto 改进。\n在不牺牲其他参与者的福利或使用更多资源的前提下，不能改进任意一个参与者的福利。如果证券市场允许参与者达到 Pareto 最优配置，就称它为有效市场（efficient market）。\n","dateCreated":"2020-10-04T16:07:25+08:00","dateModified":"2020-10-04T17:34:19+08:00","datePublished":"2020-10-04T16:07:25+08:00","description":"","headline":"基本框架","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"}</script>
+    <meta name="description" content="本章讨论三个主题 首先，从金融学的角度，讨论经济结构的三个方面：  所处的经济环境。 经济中的参与者（agent）及其特征。 金融市场。  其次，我们研究参与者资源配置和金融市场（尤其是价格）的相互作用。最后，我们的核心问题是金融市场帮助参与者完成资源配置的效率。 1.1 经济环境经济环境的两个关键因素是时间和风险。 对于时间，我们简单的认为只有现在（$t&#x3D;0$）和未来（$t&#x3D;1$）两个时期。对于">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="基本框架">
+<meta property="og:url" content="http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本章讨论三个主题 首先，从金融学的角度，讨论经济结构的三个方面：  所处的经济环境。 经济中的参与者（agent）及其特征。 金融市场。  其次，我们研究参与者资源配置和金融市场（尤其是价格）的相互作用。最后，我们的核心问题是金融市场帮助参与者完成资源配置的效率。 1.1 经济环境经济环境的两个关键因素是时间和风险。 对于时间，我们简单的认为只有现在（$t&#x3D;0$）和未来（$t&#x3D;1$）两个时期。对于">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-04T08:07:25.000Z">
+<meta property="article:modified_time" content="2020-10-04T09:34:19.874Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -37,6 +41,8 @@
     
 
     
+        
+    
 </head>
 
     <body>
@@ -46,7 +52,7 @@
 
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a
@@ -73,7 +79,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
         
@@ -301,30 +307,22 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
-                            aria-label=": 基本框架"
-                        >
-                            基本框架
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            基本框架
+        </h1>
+    
+    
+        <div class="post-meta">
     <time datetime="2020-10-04T16:07:25+08:00">
 	
 		    10月 04, 2020
@@ -339,10 +337,13 @@
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>本章讨论三个主题</p>
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>本章讨论三个主题</p>
 <p>首先，从金融学的角度，讨论<strong>经济结构</strong>的三个方面：</p>
 <ul>
 <li>所处的<strong>经济环境</strong>。</li>
@@ -511,37 +512,111 @@ S=S(P;\{U_k,e_k\};X)</script><p>这在形式上表明了证券价格取决于经
 \sum_{k=1}^Kc_k=\sum_{k=1}^Ke_k</script><p>定义 <strong>Pareto 最优</strong>（Pareto Optimality），一个配置 $\{c_k,\forall k\}$ 是可行的且不存在 Pareto 改进。</p>
 <p>在不牺牲其他参与者的福利或使用更多资源的前提下，不能改进任意一个参与者的福利。<br>如果证券市场允许参与者达到 Pareto 最优配置，就称它为<strong>有效市场</strong>（efficient market）。</p>
 
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                评论和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
+
+
         </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
 
 
 
@@ -552,6 +627,148 @@ S=S(P;\{U_k,e_k\};X)</script><p>这在形式上表明了证券价格取决于经
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                        aria-label="分享到 Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                        aria-label="分享到 Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=http://example.com/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                        aria-label="分享到 Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
             
         </div>
         
@@ -589,6 +806,8 @@ S=S(P;\{U_k,e_k\};X)</script><p>这在形式上表明了证券价格取决于经
 
 <!--SCRIPTS END-->
 
+
+    
 
 
 

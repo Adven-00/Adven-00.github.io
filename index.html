@@ -316,38 +316,199 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/09/28/hello-world/"
-                            aria-label=": Hello World"
+                            href="/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/"
+                            aria-label=": 基本框架"
                         >
-                            Hello World
+                            基本框架
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-09-28T14:28:38+08:00">
+    <time datetime="2020-10-04T16:07:25+08:00">
 	
-		    9月 28, 2020
+		    10月 04, 2020
     	
     </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/Finance/">Finance</a>
+
+
     
 </div>
 
             </div>
             
                 <div class="postShorten-content">
-                    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                    <p>本章讨论三个主题</p>
+<p>首先，从金融学的角度，讨论<strong>经济结构</strong>的三个方面：</p>
+<ul>
+<li>所处的<strong>经济环境</strong>。</li>
+<li>经济中的<strong>参与者</strong>（agent）及其特征。</li>
+<li><strong>金融市场。</strong></li>
+</ul>
+<p>其次，我们研究参与者资源配置和金融市场（尤其是价格）的相互作用。<br>最后，我们的核心问题是金融市场帮助参与者完成资源配置的效率。</p>
+<h2 id="1-1-经济环境"><a href="#1-1-经济环境" class="headerlink" title="1.1 经济环境"></a>1.1 经济环境</h2><p>经济环境的两个关键因素是<strong>时间</strong>和<strong>风险</strong>。</p>
+<p>对于时间，我们简单的认为只有现在（$t=0$）和未来（$t=1$）两个时期。<br>对于风险，未来的所有状态 $\omega$ 组成一个状态空间 $\Omega$ ，每个状态 $\omega\in\Omega$ ，并定义这个空间上的概率测度 $P(\omega)$ 。$\Omega$ 也可以表示状态空间中的总状态数。</p>
+<p>我们认为经济环境是<strong>外生</strong>（exogenous）的，只存在一种不可存储且既是资本品又是消费品的商品。不可储存商品的假设排除了通过简单的储存把今天的商品转换成明天的商品的可能。</p>
+<h2 id="1-2-参与者"><a href="#1-2-参与者" class="headerlink" title="1.2 参与者"></a>1.2 参与者</h2><p>参与者可以是个人，家庭，公司，政府等等，简单起见我们只考虑为自己利益行动的个体。<br>参与者的经济特征包括：</p>
+<ul>
+<li>他所控制的<strong>经济资源</strong>。</li>
+<li>他的<strong>经济需求</strong>。</li>
+</ul>
+<p>以下对这两个特征进行描述。</p>
+<h3 id="1-2-1-参与者的经济资源"><a href="#1-2-1-参与者的经济资源" class="headerlink" title="1.2.1 参与者的经济资源"></a>1.2.1 参与者的经济资源</h3><ul>
+<li><p><strong>禀赋</strong>（endowment）<br>参与者初始占有，与生俱来的资源。我们用列向量表示：</p>
+<script type="math/tex; mode=display">
+e_k=[e_{k,0};e_{k,1}]=[e_{k,0};[e_{k,11};\cdots;e_{k,1\Omega}]]</script><p>即参与者 $k$ 的禀赋 $e_k$ 可在 $1+\Omega$ 维实空间上展开，在各个状态维度上有不同的分量，0期是一个单独的状态，与 $\omega$ 无关。 </p>
+</li>
+<li><p><strong>信息</strong>（information）<br>信息分为公共性息和私有信息，掌握私有信息引发的信息不对称会导致激励问题。<br>我们构建的简化模型忽略这一点，认为所有参与者在当下拥有相同信息，反映在测度 $P$ 中。</p>
+</li>
+<li><p><strong>生产技术</strong>（technology）<br>我们构建的简化模型忽略这一点，认为所有参与者不具备生产技术。</p>
+</li>
+</ul>
+<h3 id="1-2-2-参与者的经济需求"><a href="#1-2-2-参与者的经济需求" class="headerlink" title="1.2.2 参与者的经济需求"></a>1.2.2 参与者的经济需求</h3><h4 id="1-2-2-1-消费集"><a href="#1-2-2-1-消费集" class="headerlink" title="1.2.2.1 消费集"></a>1.2.2.1 消费集</h4><p>在我们的框架中，参与者的经济需求基于他在不同状态下的消费，与禀赋类似地定义：</p>
+<script type="math/tex; mode=display">
+c_k=[c_{k,0};c_{k,1}]=[c_{k,0};[c_{k,11};\cdots;c_{k,1\Omega}]]</script><p>我们定义 $c=[c_0,c_1]$ 为一个<strong>消费计划</strong>， 显然消费计划的取值与未来经济状态有关，是一个随机量，这个随机量的一个具体实现称为一个<strong>消费路径</strong>。所有可能消费计划的集合称为<strong>消费集</strong> $C$ （consumption set）。实际上，$C=R^{1+\Omega}_+$  （消费一般不取负值）。</p>
+<blockquote>
+<p>这里补充一些 $R^n$ 上集合 $A$ 的性质<br>凸集：对 $\forall a,b\in A, \forall \alpha\in[0,1],\alpha a+(1-\alpha)b\in A$<br>闭集：对 $A$ 中的任意元素序列 $\{a_i\}$ ，其极限 $\alpha \in A$</p>
+</blockquote>
+<p>$C$ 是一个闭凸子集。</p>
+<h4 id="1-2-2-2-偏好"><a href="#1-2-2-2-偏好" class="headerlink" title="1.2.2.2 偏好"></a>1.2.2.2 偏好</h4><p>偏好（preference）定义为 $C$ 上的一个二元关系，表示为 $\succsim$，定义为</p>
+<ul>
+<li>完备：$\forall a,b\in C,a\succsim b$ 或 $b \succsim a$ 或两者均成立</li>
+<li>传递：$a\succsim b,b\succsim c,$ 则 $a\succsim c$ <blockquote>
+<p>完备保证所有消费计划可以比较，传递保证参与者的理性。</p>
+</blockquote>
+</li>
+</ul>
+<p>为了更准确地刻画参与者行为，我们做进一步基本假设：</p>
+<ul>
+<li><p><strong>不满足性</strong>（insatiability）：若 $a &gt; b$，则 $a  \succ b$ 。</p>
+<blockquote>
+<p> 如果在所有状态下 $a$ 消费量都不比 $b$ 少，则参与者显然偏好 $a$ 。</p>
+</blockquote>
+</li>
+<li><p><strong>连续性</strong> （continuity）：$\forall c\in C$ ，$\{a\in C:a\succsim c\},\{b\in C:b\lesssim c\}$ 都是闭集。 </p>
+<blockquote>
+<p>接近的消费计划有着接近的偏好顺序。</p>
+</blockquote>
+</li>
+<li><p><strong>凸性</strong>（convexity）：对 $\forall a,b\in C, \forall \alpha\in(0,1),$ 若 $a\succ b$ ，则 $ \alpha a+(1-\alpha)b\succ b$ 。</p>
+</li>
+</ul>
+<h4 id="1-2-2-3-效用"><a href="#1-2-2-3-效用" class="headerlink" title="1.2.2.3 效用"></a>1.2.2.3 效用</h4><p>我们定义一个映射 $U:C\to R$，满足 $a \succsim b$ 时 $U(a)\ge U(b)$ ，称之为效用（utility）函数，以便于研究偏好。</p>
+<p>可以证明，对于满足连续性假设的偏好，必存在对应的效用函数。</p>
+<blockquote>
+<p>不唯一，可以做正单调变换，所以效用函数的值没有意义，是序数的。</p>
+</blockquote>
+<p>以效用作为工具，可以简洁地重述偏好的三个基本假设：</p>
+<ul>
+<li>不满足性：若 $a \ge b$，则 $U(a)\ge U(b)$ 。</li>
+<li>连续性：$\lim_{a_n\to a}U(a_n)=U(a)$ 。</li>
+<li>凸性：若 $U(a)&gt;U(b)，\alpha\in (0,1)$ ，则 $U(\alpha a+(1-\alpha)b)&gt;U(b)$ 。</li>
+</ul>
+<h2 id="1-3-证券市场"><a href="#1-3-证券市场" class="headerlink" title="1.3 证券市场"></a>1.3 证券市场</h2><p>给定经济所处的自然环境和其中的参与者，我们现在要考虑参与者如何配置其资源以满足他们的经济需求。而资源的配置是通过金融市场中的交易来完成的。我们简化为证券市场。</p>
+<h3 id="1-3-1-证券及其支付"><a href="#1-3-1-证券及其支付" class="headerlink" title="1.3.1 证券及其支付"></a>1.3.1 证券及其支付</h3><p><strong>证券</strong>（security）是一种金融要求权，会在1期给所有者带来支付。记不同状态下的<strong>支付</strong>为 $x_\omega$ ，那一支证券就可以用列向量 $x=[x_1;\cdots ;x_\Omega]$ 表示。所有可能支付组合成<strong>支付空间</strong> $R^\Omega$ 。</p>
+<p>根据假设，证券的支付是外生的。</p>
+<blockquote>
+<p>上面对金融证券的描述有这样几个含义：第一，它的支付只取决于未来的实际经济状况。第二，它的支付是外生给定的且不受经济中参与者行为的影响。第三，因为所有参与者都知道可能状态的集合和对应的概率，他们也知道且一致认同证券支付的概率分布。</p>
+<p>由于我们假设所有参与者的信息是对称的，因此我们将不考虑非证券化的金融要求权，而只局限于证券形式的金融要求权。这样，在我们的框架中，金融市场也就简化为证券市场了。</p>
+</blockquote>
+<p>补充一些证券相关的概念：</p>
+<ul>
+<li>证券产生的支付通常叫做<strong>股利</strong>（dividend）。</li>
+<li>对实物资产所产生的支付的要求权称为<strong>股票</strong>（stock），因此，证券也称做<strong>金融资产</strong>或资产。</li>
+<li>金融资产的支付来自于它的<strong>标的</strong>（underlying）实物资产。</li>
+<li><strong>无风险债券</strong>的支付与状态无关，<strong>风险债券</strong>（如股票）支付取决于状态。</li>
+</ul>
+<h3 id="1-3-2-市场结构"><a href="#1-3-2-市场结构" class="headerlink" title="1.3.2 市场结构"></a>1.3.2 市场结构</h3><p>假设市场中总共有 $N$ 只可交易的证券，标号为 $n$ 。<br>设第 $n$ 只证券的支付向量 $x.,n=[x_{1,n};\cdots ;x_{\Omega,n}]$ ，得到支付矩阵：</p>
+<script type="math/tex; mode=display">
+X=[x_{.,1},\cdots ,x_{.,N}]=\begin{bmatrix}x_{1,1}&\cdots &x_{1,n}&\cdots &x_{1,N}\\\vdots&\ddots&\vdots&\ddots&\vdots\\x_{\omega,1}&\cdots &x_{\omega,n}&\cdots &x_{\omega,N}\\\vdots&\ddots&\vdots&\ddots&\vdots\\x_{\Omega,1}&\cdots &x_{\Omega,n}&\cdots &x_{\Omega,N}\end{bmatrix}</script><p>支付矩阵也就是<strong>市场结构</strong>（market structure）。</p>
+<h3 id="1-3-3-证券组合"><a href="#1-3-3-证券组合" class="headerlink" title="1.3.3 证券组合"></a>1.3.3 证券组合</h3><p>我们把一个对各证券持有量的集合称为一个<strong>证券组合</strong>（security portfolio）。<br>设一个组合对证券 $n$ 的持有量为 $\theta_n$ ，持有向量 $\theta=[\theta_1;\cdots;\theta_N]$ 。<br>参与者 $k$ 的初始证券组合：</p>
+<script type="math/tex; mode=display">
+\theta_k=[\theta_{k,1};\cdots;\theta_{k,N}]</script><blockquote>
+<p>参与者的禀赋也应包括他所拥有的初始证券组合所带来的未来支付。或者说，每个参与者的1期禀赋中市场化的部分即可看做来自于他的初始组合的支付。</p>
+</blockquote>
+<p>如果将所有参与者的初始证券组合求和：</p>
+<script type="math/tex; mode=display">
+\theta_M=\sum_{k=1}^{K}\theta_k</script><p>这个组合即代表了市场中所有可交易证券的集合，称之为<strong>市场组合</strong> (market portfolio），是所有可交易证券的总供给。</p>
+<p>任何一个支付 $x$ ，若存在 $X\theta=x,\theta\in R^N$ ，我们称它为<strong>市场化的</strong>（marketed）。我们记所有市场化支付的集合为 $M$，有：</p>
+<script type="math/tex; mode=display">
+M=\{x:X\theta=x,\theta\in R^N\}</script><p>$M$ 是 $R^{\Omega}$ 的 $N$ 维子空间。</p>
+<h3 id="1-3-4-交易过程"><a href="#1-3-4-交易过程" class="headerlink" title="1.3.4 交易过程"></a>1.3.4 交易过程</h3><p>给定可交易的证券，我们还需要描述交易是如何进行的。在基本框架中，我们抽象掉细节特征而采用一个与集合交易相似的交易过程。</p>
+<blockquote>
+<p>参与者可以提交他们的买单和卖单，由系统收集这些交易单，并找到一个匹配的价格，且以这个价格执行这些交易。这种交易过程也叫做<strong>集中化交易</strong>（centralized exchange)。</p>
+</blockquote>
+<p>证券的价格向量：</p>
+<script type="math/tex; mode=display">
+S=[S_1;\cdots ;S_N]</script><p>参与者对证券的需求为 $S$ 的函数 $\theta_k(S)$，。交易系统找到一个价格（向量）使得所有证券的总需求等于总供给，得到<strong>市场出清价格条件</strong>（market-clearing condition）:</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^K\theta_k(S)=\sum_{k=1}^K\theta_k</script><p>我们假设证券市场是<strong>无摩擦市场</strong>（frictionless market）。</p>
+<blockquote>
+<p>具体而言，我们将作如下假设：</p>
+<ol>
+<li>所有参与者都可以无成本地参与证券市场。</li>
+<li>没有交易成本。</li>
+<li>对于参与者的证券持有量没有头寸限制。</li>
+<li>个体参与者的交易不会影响证券价格。</li>
+<li>没有税收。</li>
+</ol>
+<p>市场摩擦创造了盈利机会，金融机构和金融创新正是为了利用这些盈利机会而产生的。</p>
+</blockquote>
+<h2 id="1-4-基本经济模型"><a href="#1-4-基本经济模型" class="headerlink" title="1.4 基本经济模型"></a>1.4 基本经济模型</h2><p>一个经济的定义如下:</p>
+<ol>
+<li>两个时期，在1期有 $n$ 个可能状态。对于这些状态有概率测度 $P$。只有一种不可储存的商品。</li>
+<li>经济中有 $K$ 个参与者。<ul>
+<li>每一参与者对未来状态发生的可能性都有相同的信息，由 $P$ 描述。</li>
+<li>每一参与者具有禀赋 $e_k\in R_+^{1+\Omega}$ 。</li>
+<li>每一参与者有定义于 $C=R_+^{1+\Omega}$ 上，且满足三个假设的偏好。</li>
+</ul>
+</li>
+<li>有一个市场结构为 $X$ 的无摩擦证券市场。</li>
+</ol>
+<p>如果所有参与者的1期禀赋都可表示为其初始证券组合的支付，则我们称之为<strong>证券市场经济</strong>（security-market economy）。</p>
+<h2 id="1-5-市场均衡"><a href="#1-5-市场均衡" class="headerlink" title="1.5 市场均衡"></a>1.5 市场均衡</h2><p>现在我们在以上框架的基础下分析参与者资源配置和证券市场的相互作用，通过证券市场进行的资源配置过程可以看成是通过两个方面的相互影响来完成的：</p>
+<ul>
+<li>给定交易证券，特别是它们的未来支付以及现在的价格，每一参与者选择最优的证券持有量以期得到最理想的支付。 显然，他的持有量取决于这些证券的价格。</li>
+<li>参与者对证券的需求会共同影响证券的价格。如果价格使得对证券的需求恰好等于它的供给，那么我们说市场达到<strong>均衡</strong>（equilibrium）。</li>
+</ul>
+<h3 id="1-5-1-参与者各自优化"><a href="#1-5-1-参与者各自优化" class="headerlink" title="1.5.1 参与者各自优化"></a>1.5.1 参与者各自优化</h3><p>考虑一个参与者，拥有禀赋 $e$，以价格 $S$ 购买证券组合 $\theta$，那么他的消费：</p>
+<script type="math/tex; mode=display">
+c_0=e_0-S^T\theta</script><script type="math/tex; mode=display">
+c_1=e_1+X\theta</script><p>原本他只能消费禀赋 $c=(e_0,e_1)$ ，这是由商品不能储存的假设决定的，但通过购买组合 $\theta$ 他可以用一个市场化的支付 $X\theta$ 来改变他的未来消费。注意 $\theta$ 可以有负值。</p>
+<blockquote>
+<p>对证券的持有量为正时称为<strong>多头</strong>（投资者对股市看好，预计股价将会看涨，于是趁低价时买进股票，待股票上涨至某一价位时再卖出，以获取差额收益）。</p>
+<p>为负时称为<strong>空头</strong>（投机者认为某种商品、股票、债券等的价格将要下跌，于是卖出期货，希望在跌价后再买回或补进，获取差额利益）。<br>购买组合所用的成本即代表参与者0期的<strong>储蓄</strong>（savings)，负的储蓄即借贷。</p>
+</blockquote>
+<p>具有禀赋 $e$ 的参与者在支付和价格为 ${X,S}$ 的证券市场中的<strong>预算集</strong>（budget set）定义为：</p>
+<script type="math/tex; mode=display">
+B(e,\{X,S\})=\{c\ge0:c_0=e_0-S^T\theta,c_1=e_1+X\theta,\theta\in R^N\}</script><p>参与者的最优化问题由效用表达：</p>
+<script type="math/tex; mode=display">
+\max_{c_k\in B(e_k,\{X,S\})} U_k(c_k)</script><p>结果是每一参与者对证券的需求量，是价格向量和禀赋的函数 $\theta_k(e_k,S)$ 。</p>
+<h3 id="1-5-2-市场出清"><a href="#1-5-2-市场出清" class="headerlink" title="1.5.2 市场出清"></a>1.5.2 市场出清</h3><p>在我们的假设下，所有参与者证券初始持有量为0，所以证券总供给也为0。</p>
+<blockquote>
+<p>我们注意到，这样的表述并不失其一般性。如果持有初始证券，我们就把禀赋转化成 $e^T=[e_0;e_1+X\theta]$ ，把 $e^T$ 当作他的总禀赋，而把证券持有量设为0。</p>
+</blockquote>
+<p>市场出清条件为：</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^K\theta_k(e_k,S)=0</script><p>将出清条件代入所有参与者的消费中：</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^K c_{k,0}=\sum_{k=1}^K e_{k,0}-S^T\sum_{k=1}^K\theta_k(e_k,S)=\sum_{k=1}^K e_{k,0}</script><script type="math/tex; mode=display">
+\sum_{k=1}^Kc_{k,\omega}=\sum_{k=1}^K e_{k,\omega}+X\sum_{k=1}^K\theta_k(e_k,S)=\sum_{k=1}^K e_{k,\omega}</script><p>以上两式意味着证券市场的出清就是商品市场的出清，即 $Walras$ 法则：</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^Kc_k=\sum_{k=1}^Ke_k</script><p>这个等式的含义很显然，证券市场只对资源进行了交换，不改变总量。</p>
+<p>因此，求解均衡包括两个步骤：首先，对于任意的价格向量 $S$ 求解 每个参与者的最优证券组合，这给出了他对证券的需求 $\theta_k(e_k,S)$ 。第二，通过市场出清条件求解均衡价格 $S$。结果写作：</p>
+<script type="math/tex; mode=display">
+S=S(P;\{U_k,e_k\};X)</script><p>这在形式上表明了证券价格取决于经济的<strong>基本面</strong> （fundamentals） 或<strong>本源</strong>（primitives）：经济面临的风险，经济中参与者的偏好和禀赋以及证券市场的结构。</p>
+<h2 id="1-6-最优化"><a href="#1-6-最优化" class="headerlink" title="1.6 最优化"></a>1.6 最优化</h2><p>证券市场配置资源的效率就是我们关注的一个核心问题。在给定的市场结构和交易证券的市场价格下，每个参与者都选择了最优的消费计划。但是这并不意味着最后的配置在参与者之间是最优的。下面来定义什么是最优。</p>
+<p>定义 <strong>Pareto 改进</strong>，$\{c_k^{‘},\forall k\}$ 是对 $\{c_k,\forall k\}$ 的一个 Pareto 改进，若：</p>
+<script type="math/tex; mode=display">
+\forall k:U_k(c_k^{'})\ge U_k(c_k)</script><p>定义<strong>可行</strong>（feasible），一个配置 $\{c_k,\forall k\}$ 是可行的，若：</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^Kc_k=\sum_{k=1}^Ke_k</script><p>定义 <strong>Pareto 最优</strong>（Pareto Optimality），一个配置 $\{c_k,\forall k\}$ 是可行的且不存在 Pareto 改进。</p>
+<p>在不牺牲其他参与者的福利或使用更多资源的前提下，不能改进任意一个参与者的福利。<br>如果证券市场允许参与者达到 Pareto 最优配置，就称它为<strong>有效市场</strong>（efficient market）。</p>
 
                     
                         
@@ -357,7 +518,7 @@
                     
                         <p>
                             <a
-                                href="/2020/09/28/hello-world/#post-footer"
+                                href="/2020/10/04/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -430,5 +591,20 @@
 
 
 
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>

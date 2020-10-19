@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Adven">
+    <title>套利与资产定价 - Adven</title>
+    <meta name="author" content="Adven">
+    
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg"},"articleBody":"3 套利与资产定价在本章中，我们从任意的市场结构出发，讨论\n\n证券价格的基本性质\n资产定价原理\n\n\n\n3.1 一般证券市场结构3.1.1 复合证券与冗余证券我们称在多个状态下有支付的的证券为复合证券（composite security），它们的支付都可以看成是由状态或有证券的组合而产生的。对一个一般支付矩阵，除去极大线性无关组后剩余的证券向量称之为冗余证券（redundant security），即可以由其他证券的支付复制。\n\n在我们的假设中，冗余证券没有意义。但在现实中由于市场摩擦，要用其他证券来实际复制它是有额外成本的，此时准确定义是它的存在与否不影响均衡配置。\n\n3.1.2 等价描述去除支付矩阵中的冗余证券，我们就得到一个列向量线性独立的支付矩阵 $X$ 。\n给定具有线性独立支付矩阵 $X$ 的证券集合，我们可以形成 $n$ 个线性独立的组合 $\\theta_1, \\cdots,\\theta_n$ ，令 $H=[\\theta_1, \\cdots,\\theta_n]$ 。此时我们可以把每个组合当作一个证券，形成新支付矩阵：\n\nX_\\theta=XH容易证明，原始证券的任意组合 $\\theta$ 都可以由新支付矩阵的复制：\n\nX\\theta=(XH)H^{-1}\\theta=X_\\theta (H^{-1}\\theta)如果不存在摩擦，独立组合 $\\theta_1, \\cdots,\\theta_n$ 提供了市场结构的一个等价描述。\n特别地，若要复制 Arrow-Debreu 证券市场，$XH=I$ ，此时 $X$ 是可逆的，满秩的。所以，满秩的证券市场结构与Arrow-Debreu 证券市场之间是等价的，由这些证券可以生成任意的支付，由这些证券定义的市场是完全的。在这种情况下，我们称经济中的不确定性可由市场中的证券生成。\n3.2 无套利原理考虑一个证券交易组合 $\\theta=[\\theta_1;\\cdots;\\theta_n]$ ，价值为 $S^T\\theta$ ，支付为 $X\\theta$ 。注意 $\\theta_n$ 可以为负，表示对证券做空。未来支付也可以为负，负的未来支付称为责任（liability），非负的支付为有限责任（limited liability）。\n我们将满足 $X\\theta\\ge0$ ，$S^T\\theta\\le0$ ，且至少有一个不等式严格成立的 $\\theta$ 称为套利（arbitrage），显然套利有三类：\n\n$S^T\\theta&lt;0,X\\theta=0$\n$S^T\\theta=0,X\\theta&gt;0$\n$S^T\\theta0$\n\n\n上面定义的套利只依赖于交易证券的支付和价格，而我们又假定所有参与者都知道这些支付和价格。这意味着套利不依赖于任何私有信息，如果存在套利机会的话，所有人都可以利用这些套利机会（在无摩擦的假设下）。\n\n给定支付矩阵，证券价格不能是任意的，否则就有可能存在套利机会。很明显，允许存在套利可能的价格不可能是市场均衡的结果。因为对任意一个具有不满足偏好的参与者来说，如果可能的话，他将进行大套利交易以产生额外的财富，进而导致价格变化消除套利机会。这被称为无套利原理（Principle of No~Arbitrage）。\n\n市场套利机会依赖于两个假设：一是（至少部分）市场参与者的不满足性，二是市场无摩擦。如果不满足性的假设是自然满足的话，那么无套利的假设实际上等同于市场无摩擦的假设。\n\n3.3 资产定价基本定理资产定价关系或模型指的是从证券的支付 $X$ 到其价 $S$ 的映射， 写作 $S=V(x)$ 。$V(\\cdot)$ 称为定价算子（pricing operator）。\n无套利原理赋予了定价算子—些基本性质，如非负，递增等，归纳起来，定价算子是递增的线性算子，即：\n\nV(ax+by)=aV(x)+bV(y)进一步，定价算子有如下形式：\n\nV(x)=\\phi^Tx,\\phi>0证券市场中不存在套利机会的充要条件为存在 $\\phi\\gg0$ ，使得：\n\nS=X^T\\phi这就是资产定价基本定理（Fundamental Theorem of Asset Pricing）。无套利意味着存在一个可为所有交易证券定价的状态价格向量 $\\phi\\gg0$。一般来讲，这样的价格向量不止一个，但在一个完全证券市场中，状态价格向量是唯一的。\n注意到，我们此处对证券的定价只基于证券市场的性质，与参与者无关，和前两章的最优化问题有所不同。\n3.4 风险中性定价定义1单位无风险证券投资获得的净支付或收益率（rate of return）， 也称做无风险利率（interest rate）并记为 $r_f$ 。\n\nS=\\cfrac{1}{1+f_f}以上面的形式把证券的价格表达成其支付（此处为1）的线性函数的方法通常叫做折现（discounting）。\n对于市场上的某个其他证券，我们定义测度 $Q=\\{q_{\\omega},\\omega\\in\\Omega\\}$ ，其中：\n\nq_\\omega=\\cfrac{\\phi_\\omega}{\\sum_{\\omega^{'}}\\phi_{\\omega^{'}}}证券价格就是它在测度 $Q$ 下的期望支付对无风险利率的折现。\n\nS_n=\\cfrac{E^Q[x_n]}{1+r_f}这个折现公式对所有证券都适用而不仅仅适用于无风险证券。也就是说，它并不区分具有不同风险的证券。由于这个原因，上式叫做风险中性定价（risk-neutral pricing）公式。而 $Q$ 则被称为风险中性测度（risk-neutral measure）。\n","dateCreated":"2020-10-19T11:17:59+08:00","dateModified":"2020-10-19T11:20:32+08:00","datePublished":"2020-10-19T11:17:59+08:00","description":"3 套利与资产定价在本章中，我们从任意的市场结构出发，讨论\n\n证券价格的基本性质\n资产定价原理\n","headline":"套利与资产定价","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"},"publisher":{"@type":"Organization","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg","logo":{"@type":"ImageObject","url":"head_1.jpg"}},"url":"http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"}</script>
+    <meta name="description" content="3 套利与资产定价在本章中，我们从任意的市场结构出发，讨论  证券价格的基本性质 资产定价原理">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="套利与资产定价">
+<meta property="og:url" content="http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/index.html">
+<meta property="og:site_name" content="Adven">
+<meta property="og:description" content="3 套利与资产定价在本章中，我们从任意的市场结构出发，讨论  证券价格的基本性质 资产定价原理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-19T03:17:59.000Z">
+<meta property="article:modified_time" content="2020-10-19T03:20:32.778Z">
+<meta property="article:author" content="Adven">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://example.com/assets/images/head_1.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-vsujstjvsvaksywctimlds3uzkctpt0qd0wj1vg6ask196gxmcn10twj3lyv.min.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Adven
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="打开链接: /#about"
+            >
+        
+        
+            <img class="header-picture" src="/assets/images/head_1.jpg" alt="作者"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="阅读有关作者的更多信息"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/head_1.jpg" alt="作者"/>
+                </a>
+                <h4 class="sidebar-profile-name">Adven</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="首页"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="分类"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="标签"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="归档"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="搜索"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="关于"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/Adven-00"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://twitter.com/bhy46431841"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Twitter"
+                        >
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="mailto:qwe6571@qq.com"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="邮箱"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">邮箱</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            套利与资产定价
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-10-19T11:17:59+08:00">
+	
+		    10月 19, 2020
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/Finance/">Finance</a>, <a class="category-link" href="/categories/Finance/Financial-Economics/">Financial Economics</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="3-套利与资产定价"><a href="#3-套利与资产定价" class="headerlink" title="3 套利与资产定价"></a>3 套利与资产定价</h1><p>在本章中，我们从任意的市场结构出发，讨论</p>
+<ul>
+<li>证券价格的基本性质</li>
+<li>资产定价原理</li>
+</ul>
+<a id="more"></a>
+<h1 id="table-of-contents">目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7"><span class="toc-text">3 套利与资产定价</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%B8%80%E8%88%AC%E8%AF%81%E5%88%B8%E5%B8%82%E5%9C%BA%E7%BB%93%E6%9E%84"><span class="toc-text">3.1 一般证券市场结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%A4%8D%E5%90%88%E8%AF%81%E5%88%B8%E4%B8%8E%E5%86%97%E4%BD%99%E8%AF%81%E5%88%B8"><span class="toc-text">3.1.1 复合证券与冗余证券</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E7%AD%89%E4%BB%B7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.1.2 等价描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%97%A0%E5%A5%97%E5%88%A9%E5%8E%9F%E7%90%86"><span class="toc-text">3.2 无套利原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="toc-text">3.3 资产定价基本定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E9%A3%8E%E9%99%A9%E4%B8%AD%E6%80%A7%E5%AE%9A%E4%BB%B7"><span class="toc-text">3.4 风险中性定价</span></a></li></ol></li></ol>
+<h2 id="3-1-一般证券市场结构"><a href="#3-1-一般证券市场结构" class="headerlink" title="3.1 一般证券市场结构"></a>3.1 一般证券市场结构</h2><h3 id="3-1-1-复合证券与冗余证券"><a href="#3-1-1-复合证券与冗余证券" class="headerlink" title="3.1.1 复合证券与冗余证券"></a>3.1.1 复合证券与冗余证券</h3><p>我们称在多个状态下有支付的的证券为<strong>复合证券</strong>（composite security），它们的支付都可以看成是由状态或有证券的组合而产生的。对一个一般支付矩阵，除去极大线性无关组后剩余的证券向量称之为<strong>冗余证券</strong>（redundant security），即可以由其他证券的支付复制。</p>
+<blockquote>
+<p>在我们的假设中，冗余证券没有意义。但在现实中由于市场摩擦，要用其他证券来实际复制它是有额外成本的，此时准确定义是它的存在与否不影响均衡配置。</p>
+</blockquote>
+<h3 id="3-1-2-等价描述"><a href="#3-1-2-等价描述" class="headerlink" title="3.1.2 等价描述"></a>3.1.2 等价描述</h3><p>去除支付矩阵中的冗余证券，我们就得到一个列向量线性独立的支付矩阵 $X$ 。</p>
+<p>给定具有线性独立支付矩阵 $X$ 的证券集合，我们可以形成 $n$ 个线性独立的组合 $\theta_1, \cdots,\theta_n$ ，令 $H=[\theta_1, \cdots,\theta_n]$ 。此时我们可以把每个组合当作一个证券，形成新支付矩阵：</p>
+<script type="math/tex; mode=display">
+X_\theta=XH</script><p>容易证明，原始证券的任意组合 $\theta$ 都可以由新支付矩阵的复制：</p>
+<script type="math/tex; mode=display">
+X\theta=(XH)H^{-1}\theta=X_\theta (H^{-1}\theta)</script><p>如果不存在摩擦，独立组合 $\theta_1, \cdots,\theta_n$ 提供了市场结构的一个等价描述。</p>
+<p>特别地，若要复制 Arrow-Debreu 证券市场，$XH=I$ ，此时 $X$ 是可逆的，满秩的。所以，满秩的证券市场结构与Arrow-Debreu 证券市场之间是等价的，由这些证券可以生成任意的支付，由这些证券定义的市场是完全的。在这种情况下，我们称经济中的不确定性可由市场中的证券生成。</p>
+<h2 id="3-2-无套利原理"><a href="#3-2-无套利原理" class="headerlink" title="3.2 无套利原理"></a>3.2 无套利原理</h2><p>考虑一个证券交易组合 $\theta=[\theta_1;\cdots;\theta_n]$ ，价值为 $S^T\theta$ ，支付为 $X\theta$ 。注意 $\theta_n$ 可以为负，表示对证券做空。未来支付也可以为负，负的未来支付称为<strong>责任</strong>（liability），非负的支付为<strong>有限责任</strong>（limited liability）。</p>
+<p>我们将满足 $X\theta\ge0$ ，$S^T\theta\le0$ ，且至少有一个不等式严格成立的 $\theta$ 称为<strong>套利</strong>（arbitrage），显然套利有三类：</p>
+<ul>
+<li>$S^T\theta&lt;0,X\theta=0$</li>
+<li>$S^T\theta=0,X\theta&gt;0$</li>
+<li>$S^T\theta<0,X\theta>0$</li>
+</ul>
+<blockquote>
+<p>上面定义的套利只依赖于交易证券的支付和价格，而我们又假定所有参与者都知道这些支付和价格。这意味着套利不依赖于任何私有信息，如果存在套利机会的话，所有人都可以利用这些套利机会（在无摩擦的假设下）。</p>
+</blockquote>
+<p>给定支付矩阵，证券价格不能是任意的，否则就有可能存在套利机会。很明显，允许存在套利可能的价格不可能是市场均衡的结果。因为对任意一个具有不满足偏好的参与者来说，如果可能的话，他将进行大套利交易以产生额外的财富，进而导致价格变化消除套利机会。这被称为<strong>无套利原理</strong>（Principle of No~Arbitrage）。</p>
+<blockquote>
+<p>市场套利机会依赖于两个假设：一是（至少部分）市场参与者的不满足性，二是市场无摩擦。如果不满足性的假设是自然满足的话，那么无套利的假设实际上等同于市场无摩擦的假设。</p>
+</blockquote>
+<h2 id="3-3-资产定价基本定理"><a href="#3-3-资产定价基本定理" class="headerlink" title="3.3 资产定价基本定理"></a>3.3 资产定价基本定理</h2><p>资产定价关系或模型指的是从证券的支付 $X$ 到其价 $S$ 的映射， 写作 $S=V(x)$ 。$V(\cdot)$ 称为<strong>定价算子</strong>（pricing operator）。</p>
+<p>无套利原理赋予了定价算子—些基本性质，如非负，递增等，归纳起来，定价算子是递增的线性算子，即：</p>
+<script type="math/tex; mode=display">
+V(ax+by)=aV(x)+bV(y)</script><p>进一步，定价算子有如下形式：</p>
+<script type="math/tex; mode=display">
+V(x)=\phi^Tx,\phi>0</script><p>证券市场中不存在套利机会的充要条件为存在 $\phi\gg0$ ，使得：</p>
+<script type="math/tex; mode=display">
+S=X^T\phi</script><p>这就是<strong>资产定价基本定理</strong>（Fundamental Theorem of Asset Pricing）。无套利意味着存在一个可为所有交易证券定价的状态价格向量 $\phi\gg0$。一般来讲，这样的价格向量不止一个，但在一个完全证券市场中，状态价格向量是唯一的。</p>
+<p>注意到，我们此处对证券的定价只基于证券市场的性质，与参与者无关，和前两章的最优化问题有所不同。</p>
+<h2 id="3-4-风险中性定价"><a href="#3-4-风险中性定价" class="headerlink" title="3.4 风险中性定价"></a>3.4 风险中性定价</h2><p>定义1单位无风险证券投资获得的净支付或<strong>收益率</strong>（rate of return）， 也称做<strong>无风险利率</strong>（interest rate）并记为 $r_f$ 。</p>
+<script type="math/tex; mode=display">
+S=\cfrac{1}{1+f_f}</script><p>以上面的形式把证券的价格表达成其支付（此处为1）的线性函数的方法通常叫做<strong>折现</strong>（discounting）。</p>
+<p>对于市场上的某个其他证券，我们定义测度 $Q=\{q_{\omega},\omega\in\Omega\}$ ，其中：</p>
+<script type="math/tex; mode=display">
+q_\omega=\cfrac{\phi_\omega}{\sum_{\omega^{'}}\phi_{\omega^{'}}}</script><p>证券价格就是它在测度 $Q$ 下的期望支付对无风险利率的折现。</p>
+<script type="math/tex; mode=display">
+S_n=\cfrac{E^Q[x_n]}{1+r_f}</script><p>这个折现公式对所有证券都适用而不仅仅适用于无风险证券。也就是说，它并不区分具有不同风险的证券。由于这个原因，上式叫做<strong>风险中性定价</strong>（risk-neutral pricing）公式。而 $Q$ 则被称为<strong>风险中性测度</strong>（risk-neutral measure）。</p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"
+                    data-tooltip="Bresenham 直线光栅化算法"
+                    aria-label="下一篇: Bresenham 直线光栅化算法"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/&amp;title=套利与资产定价"
+                    title="分享到 QQ"
+                    aria-label="分享到 QQ"
+                >
+                    <i class="fab fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                    title="分享到 Qzone"
+                    aria-label="分享到 Qzone"
+                >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="目录">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Adven. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"
+                    data-tooltip="Bresenham 直线光栅化算法"
+                    aria-label="下一篇: Bresenham 直线光栅化算法"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/&amp;title=套利与资产定价"
+                    title="分享到 QQ"
+                    aria-label="分享到 QQ"
+                >
+                    <i class="fab fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                    title="分享到 Qzone"
+                    aria-label="分享到 Qzone"
+                >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="目录">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                        aria-label="分享到 Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/&amp;title=套利与资产定价"
+                        aria-label="分享到 QQ"
+                    >
+                        <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/10/19/%E5%A5%97%E5%88%A9%E4%B8%8E%E8%B5%84%E4%BA%A7%E5%AE%9A%E4%BB%B7/"
+                        aria-label="分享到 Qzone"
+                    >
+                        <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/head_1.jpg" alt="作者"/>
+        
+            <h4 id="about-card-name">Adven</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>学生</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                中国，安徽
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-kv4a0z6dwzfs1nzfsogzh8yj1x846garglksknq5knginsrvnvtmk2awem5o.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

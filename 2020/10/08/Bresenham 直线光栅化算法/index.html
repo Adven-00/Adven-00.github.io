@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg"},"articleBody":"\n构建如下模型\n\n对每一块像素，用像素的中心点作为代表，用网格代表像素的排列，格n点为像素中心。\n有一条线段，从一个像素 $(x_0,y_0)$ 出发到另一个像素 $(x_n,y_n)$。\n\n我们设线段对应的方程为 $y=kx+b$其中 $x_n-x_0=\\Delta x, y_n-y_0= \\Delta y,k = \\Delta y/\\Delta x\\in(0,1)$已知直线通过了像素 $(x_i, y_i)$，判断下一个通过的像素是 $(x_i + 1, y_i)$ 还是 $(x_i + 1, y_i+1)$。\n\n从图中容易看出，只要比较 $d_1-d_2$ ，大于0取右上像素，小于零取右像素，有且c仅有这两种可能。这是因为我们假设了斜率 $k = \\Delta x/\\Delta y\\in(0,1)$。\n\nd_1=k(x_i+1)+b-y_i\\\\d_2=y_i+1-k(x_i+1)-b\\\\\nd_1-d_2 = 2k(x_i + 1)-2y_i+2b-1由于 $k$ 是浮点数，$\\Delta x, \\Delta y$ 是整数，为了减小计算开销，将等式两边同乘以 $\\Delta x$，令：\n\ne_{i}=\\Delta x(d_1-d_2)=2\\Delta y(x_i+1)-2\\Delta xy_i+c其中，$c=\\Delta x(2b-1)$ 是与像素位置无关的常数，$e_i$ 是我们需要的判别变量。$e_i$ 的正负显然不好直接判断，我们先考虑 $e_0$，再用递推方式确定 $e_i$。\n\n从图中容易看出，$e_0 = 2\\Delta y-\\Delta x$\n\ne_{i+1}-e_i=2\\Delta y(x_{i+1}-x_i)-2\\Delta x(y_{i+1}-y_i)=2\\Delta y-2\\Delta x(y_{i+1}-y_i)其中，$y_{i+1}-y_i$ 反映了下一个像素的位置\n\ny_{i+1}-y_i=\\begin{cases}\n1,&if\\ \\ e_i \\ge0\\\\ \\\\\n0,&if\\ \\ e_i ","dateCreated":"2020-10-08T12:23:31+08:00","dateModified":"2020-10-08T12:41:10+08:00","datePublished":"2020-10-08T12:23:31+08:00","description":"基础的直线光栅化算法。","headline":"Bresenham 直线光栅化算法","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"},"publisher":{"@type":"Organization","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg","logo":{"@type":"ImageObject","url":"head_1.jpg"}},"url":"http://example.com/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg"},"articleBody":"\n构建如下模型\n\n对每一块像素，用像素的中心点作为代表，用网格代表像素的排列，格n点为像素中心。\n有一条线段，从一个像素 $(x_0,y_0)$ 出发到另一个像素 $(x_n,y_n)$。\n\n我们设线段对应的方程为 $y=kx+b$其中 $x_n-x_0=\\Delta x, y_n-y_0= \\Delta y,k = \\Delta y/\\Delta x\\in(0,1)$已知直线通过了像素 $(x_i, y_i)$，判断下一个通过的像素是 $(x_i + 1, y_i)$ 还是 $(x_i + 1, y_i+1)$。\n\n从图中容易看出，只要比较 $d_1-d_2$ ，大于0取右上像素，小于零取右像素，有且c仅有这两种可能。这是因为我们假设了斜率 $k = \\Delta x/\\Delta y\\in(0,1)$。\n\nd_1=k(x_i+1)+b-y_i\\\\d_2=y_i+1-k(x_i+1)-b\\\\\nd_1-d_2 = 2k(x_i + 1)-2y_i+2b-1由于 $k$ 是浮点数，$\\Delta x, \\Delta y$ 是整数，为了减小计算开销，将等式两边同乘以 $\\Delta x$，令：\n\ne_{i}=\\Delta x(d_1-d_2)=2\\Delta y(x_i+1)-2\\Delta xy_i+c其中，$c=\\Delta x(2b-1)$ 是与像素位置无关的常数，$e_i$ 是我们需要的判别变量。$e_i$ 的正负显然不好直接判断，我们先考虑 $e_0$，再用递推方式确定 $e_i$。\n\ne_0=\\Delta x[k(x_0 + 1)+b-y_0-(y_0+1)+k(x_0+1)+b]=2\\Delta y-\\Delta x这里利用了 $kx_0+b-y_0=0$ 。\n\ne_{i+1}-e_i=2\\Delta y(x_{i+1}-x_i)-2\\Delta x(y_{i+1}-y_i)=2\\Delta y-2\\Delta x(y_{i+1}-y_i)其中，$y_{i+1}-y_i$ 反映了下一个像素的位置\n\ny_{i+1}-y_i=\\begin{cases}\n1,&if\\ \\ e_i \\ge0\\\\ \\\\\n0,&if\\ \\ e_i ","dateCreated":"2020-10-08T12:23:31+08:00","dateModified":"2020-11-07T12:49:01+08:00","datePublished":"2020-10-08T12:23:31+08:00","description":"基础的直线光栅化算法。","headline":"Bresenham 直线光栅化算法","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"},"publisher":{"@type":"Organization","name":"Adven","sameAs":["https://github.com/Adven-00","https://twitter.com/bhy46431841","mailto:qwe6571@qq.com"],"image":"head_1.jpg","logo":{"@type":"ImageObject","url":"head_1.jpg"}},"url":"http://example.com/2020/10/08/Bresenham%20%E7%9B%B4%E7%BA%BF%E5%85%89%E6%A0%85%E5%8C%96%E7%AE%97%E6%B3%95/"}</script>
     <meta name="description" content="基础的直线光栅化算法。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Bresenham 直线光栅化算法">
@@ -20,9 +20,8 @@
 <meta property="og:description" content="基础的直线光栅化算法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/0088fGsFly1gjht5yw5hbj30q00ifjrb.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0088fGsFly1gjhta1ahb3j30q00g2glk.jpg">
 <meta property="article:published_time" content="2020-10-08T04:23:31.000Z">
-<meta property="article:modified_time" content="2020-10-08T04:41:10.122Z">
+<meta property="article:modified_time" content="2020-11-07T04:49:01.711Z">
 <meta property="article:author" content="Adven">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/0088fGsFly1gjht5yw5hbj30q00ifjrb.jpg">
@@ -306,8 +305,8 @@ d_1=k(x_i+1)+b-y_i\\d_2=y_i+1-k(x_i+1)-b\\
 d_1-d_2 = 2k(x_i + 1)-2y_i+2b-1</script><p>由于 $k$ 是浮点数，$\Delta x, \Delta y$ 是整数，为了减小计算开销，将等式两边同乘以 $\Delta x$，令：</p>
 <script type="math/tex; mode=display">
 e_{i}=\Delta x(d_1-d_2)=2\Delta y(x_i+1)-2\Delta xy_i+c</script><p>其中，$c=\Delta x(2b-1)$ 是与像素位置无关的常数，$e_i$ 是我们需要的判别变量。<br>$e_i$ 的正负显然不好直接判断，我们先考虑 $e_0$，再用递推方式确定 $e_i$。</p>
-<p><img src="http://ww1.sinaimg.cn/large/0088fGsFly1gjhta1ahb3j30q00g2glk.jpg" alt="2.png" style="zoom: 33%;" div align=center/></p>
-<p>从图中容易看出，$e_0 = 2\Delta y-\Delta x$</p>
+<script type="math/tex; mode=display">
+e_0=\Delta x[k(x_0 + 1)+b-y_0-(y_0+1)+k(x_0+1)+b]=2\Delta y-\Delta x</script><p>这里利用了 $kx_0+b-y_0=0$ 。</p>
 <script type="math/tex; mode=display">
 e_{i+1}-e_i=2\Delta y(x_{i+1}-x_i)-2\Delta x(y_{i+1}-y_i)=2\Delta y-2\Delta x(y_{i+1}-y_i)</script><p>其中，$y_{i+1}-y_i$ 反映了下一个像素的位置</p>
 <script type="math/tex; mode=display">
